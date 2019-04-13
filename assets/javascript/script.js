@@ -31,7 +31,8 @@ $("button").on("click", function() {
             for (var i = 0; i <results.length ; i++) {
               var sending=result[i].lead_paragraph;
               var pageURL=result[i].web_url;
-
+              
+              var done=$("<div>");
               $(".result-container")
 
               
@@ -63,27 +64,3 @@ $("button").on("click", function() {
 
 
 
-
-
-
-
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-      console.log(response);
-      var results=response.data;
-      for (var i = 0; i < results.length; i++) {
-        var animalDiv=$('<div />');
-        var p=$("<p></p>");
-        p.text=results[i].rating;
-        console.log(results[i]);
-        console.log(results[i].rating);
-        var animalImage=$("<img>");
-        animalImage.attr("src", results[i].images.fixed_height.url);
-      animalDiv.append(p);
-      animalDiv.append(animalImage);
-      $("#gifs-appear-here").prepend(animalDiv);
-      }
-    });
-  });
